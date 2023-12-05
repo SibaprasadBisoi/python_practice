@@ -1,0 +1,2 @@
+this is a test file for file handling in python. so we can do the read,
+writel and modificaation using python.
