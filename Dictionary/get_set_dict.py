@@ -9,3 +9,9 @@ print(country_code)
 print(country_code["india"])
 # print(country_code["india", "japan", "usa"])
 print(list(country_code.values()))
+
+std_code= {"india": 680,
+           "usa": 22,
+           "uk": 335}
+print(list(sorted(std_code.values())))
+print(list(sorted(std_code.keys())))
