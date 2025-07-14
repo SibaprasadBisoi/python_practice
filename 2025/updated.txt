@@ -1,0 +1,1 @@
+this is used for win11 build. And all the win11 build are running on hccloud vm's. As hccloud is not having access to internet, all win11 builds are failing.
