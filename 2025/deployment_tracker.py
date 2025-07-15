@@ -27,4 +27,15 @@ for component in components:
         row+= f"{version:<10}"
     print(row)
 
+print("\nChecking for version mismatches")
+for component in components:
+    versions = [deployments[env][component] for env in deployments]
+    if len(set(versions)) > 1:
+        print(f"{component} has mismatched {versions}")
+    else:
+        print(f"{component} has matched the {versions}")
+    
+              
+
+
 
