@@ -9,8 +9,7 @@ deployments= {
         "api" : "2.1.1",
         "db"  : "12.0"
     },
-    "prod"
-        "dev" : {
+    "prod": {
         "web" : "1.2.0",
         "api" : "2.1.1",
         "db"  : "12.0"
@@ -25,7 +24,7 @@ for component in components:
     row = f"{component:<10}"
     for env in ["dev", "qa","prod"]:
         version = deployments.get(env, {}).get(component, "N/A")
-        row+= f"{component:<10}"
+        row+= f"{version:<10}"
     print(row)
 
 
