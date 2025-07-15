@@ -1,3 +1,4 @@
+# This script is to track deployment status
 deployments= {
     "dev" : {
         "web" : "1.2.0",
