@@ -21,3 +21,11 @@ print("Application deployment status\n")
 print(f"{'component':<10} {'Dev':<10} {'qa':<10} {'prod':<10}")
 print("-" * 40)
 
+for component in components:
+    row = f"{component:<10}"
+    for env in ["dev", "qa","prod"]:
+        version = deployments.get(env, {}).get(component, "N/A")
+        row+= f"{component:<10}"
+    print(row)
+
+
