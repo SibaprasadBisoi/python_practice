@@ -17,3 +17,7 @@ deployments= {
     }
 }
 components = ["web", "api", "db" ]
+print("Application deployment status\n")
+print(f"{'component':<10} {'Dev':<10} {'qa':<10} {'prod':<10}")
+print("-" * 40)
+
