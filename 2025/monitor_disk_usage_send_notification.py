@@ -11,3 +11,5 @@ def check_disk_usage(path):
     total, used, free = shutil.disk_usage(path)
     percent_used = used / total * 100
     return round(percent_used ,2), total, used, free
+if __name__ == "__main__":
+    percent_used, total, used, free = check_disk_usage(MONITORED_PATH)
