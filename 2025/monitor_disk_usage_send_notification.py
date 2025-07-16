@@ -13,3 +13,7 @@ def check_disk_usage(path):
     return round(percent_used ,2), total, used, free
 if __name__ == "__main__":
     percent_used, total, used, free = check_disk_usage(MONITORED_PATH)
+    if percent_used >= THRESHOLD_PERCENT:
+        print(f"warning: the disk usage is: {percent_used}")
+    else:
+        print(f"Disk usage is within safe limits")
