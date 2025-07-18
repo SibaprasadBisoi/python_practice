@@ -17,3 +17,10 @@ def get_exited_containers():
             container_id, name = line.strip().split()
             containers.append((container_id, name))
     return containers
+def restart_container(container_id, name):
+    """Restat the container"""
+    try:
+        subprocess.run(["docker", "restart", container_id], check=True)
+        log(f"Restarted container: {name} ({container_id})")
+    except subprocess.CalledProcessError:
+        log(f"Failed containers: {name} ({container_id})")
