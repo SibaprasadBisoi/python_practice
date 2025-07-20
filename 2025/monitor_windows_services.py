@@ -25,3 +25,14 @@ def check_service_status(service_name):
             return "UNKNOWN"
     except Exception as e:
         return f"Error: {e}"
+if __name__ == "__main__":
+    log("Checking windows service status" )
+    for svc in services:
+        status = check_service_status(svc)
+        if status == "RUNNING":
+            log(f"{svc} is running")
+        elif status == "STOPPED":
+            log(f"{svc} is STOPPED")
+        else:
+            log(f"Unable to determine the status of {svc}: {status}")
+            
