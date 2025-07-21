@@ -19,3 +19,8 @@ for root,dirs,files in os.walk(logs_directory):
             if os.path.getmtime(file_path) < cut_off:
                 shutil.move(file_path, (os.path.join(temp_dir, file)))
                 moved_files.append(file)
+if moved_files:
+    shutil.make_archive(archive_name, 'zip', temp_dir)
+    shutil.rmtree(temp_dir)
+else:
+    shutil.rmtree(temp_dir)
