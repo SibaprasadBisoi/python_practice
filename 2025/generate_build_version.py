@@ -7,3 +7,6 @@ except FileNotFoundError:
 major, minor, patch = map(int(version.split('.')))
 patch +=1
 new_version = f"{major}.{minor}.{patch}"
+with open(version_file, 'w')as f:
+    f.write(new_version)
+print(f"version updated from {version} to {new_version}")
