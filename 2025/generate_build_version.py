@@ -4,3 +4,6 @@ try:
         version = file.read().strip()
 except FileNotFoundError:
     version = "1.0.0"
+major, minor, patch = map(int(version.split('.')))
+patch +=1
+new_version = f"{major}.{minor}.{patch}"
