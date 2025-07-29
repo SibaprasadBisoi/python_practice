@@ -1,6 +1,6 @@
 def find_two_nums(sum):
     seen = {}
-    for num in numbers:
+    for num in nums:
         diff = target - num
         if diff in seen:
             return diff, num
