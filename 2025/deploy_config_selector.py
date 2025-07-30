@@ -15,3 +15,10 @@ configs = {
         "app_version": "1.2.0"
     }
 }
+env = input("Enter the environment (dev, qa, prod): ").strip().lower()
+if env in configs:
+    print(f"\nDeployment configuration for {env}")
+    for key, value in configs[env].items():
+        print(f" {key}: {value}")
+else:
+    print(f"Environment {env} not found in configuration")
