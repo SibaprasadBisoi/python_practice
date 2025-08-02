@@ -1,0 +1,11 @@
+boto3
+paramiko
+pytest
+fabric
+psutil
+shutil
+docker
+ansible
+requests
+os & subprocess
+pyinfra
