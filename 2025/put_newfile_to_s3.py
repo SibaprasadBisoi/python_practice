@@ -16,4 +16,12 @@ def upload_to_s3(file_path):
         print(f"No files found")
     except NoCredentialsError:
         print(f"AWS credential not found")
-        
+while True:
+    for root, dirs, files in os.walk(watch_dir):
+        for file in files:
+            file_path = os.path.join(root, file)
+            last_modified = os.path.getmtime(file_path)
+            if file_path not in file_timestamp or file_timestamp[file_path] < last_modified:
+                upload_to_s3(file_path)
+                file_timestamp[file_path] = last_modified
+    time.sleep(upload_interval)
