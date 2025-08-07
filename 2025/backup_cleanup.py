@@ -17,4 +17,12 @@ def create_backup():
             tar.add(src, arcname=arcname)
     print(f"Backup created {backup_path}")
     return backup_path
-
+def cleanup_old_backups():
+    now = time.time()
+    cutoff = now - (retention_days * 86400)
+    for filename in os.listdir(backup_dir):
+        filepath = os.path.join(backup_dir, filename)
+        if os.path.isfile(filepath) and filename.endswith(".tar.gz"):
+            if os.path.getmtime(filepath) < cutoff:
+                print(f"Deleting old backup: {filepath}")
+                os.remove(filepath)
