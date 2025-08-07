@@ -26,3 +26,9 @@ def cleanup_old_backups():
             if os.path.getmtime(filepath) < cutoff:
                 print(f"Deleting old backup: {filepath}")
                 os.remove(filepath)
+if __name__ =="__main__":
+    os.makedirs(backup_dir,exist_ok=True)
+    print(f"Starting backup process...")
+    create_backup()
+    cleanup_old_backups()
+    print(f"Deleted old backups")
