@@ -12,4 +12,13 @@ for reservation in response['Reservations']:
                 if tag['key'] == "Name":
                     name = tag[Value]
                     break
-                
+        if not name:
+            name = instance['InstanceID']
+        ec2_list.append({
+            "Name": name,
+            "InstanceID": instance["InstanceID"],
+            "InstanceType": instance_type
+        })
+        ec2_dict[name] = ec2_list
+print(ec2_dict)
+print(ec2_list)
