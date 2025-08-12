@@ -19,5 +19,7 @@ for region in regions:
             })
     if region_instances:
         inventory[region] = region_instances        
-            
+with open("ec2_inventory.json", 'w') as f:
+    json.dump(inventory, f, indent=4)
+print(f"EC2 inventory saved to ec2_inventory.json")            
 
