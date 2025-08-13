@@ -21,4 +21,11 @@ def check_service(service_name):
         log_message(f"Service {service_name} status:  {status}")
     except Exception as e:
         log_message(f"Error checking the {service_name} status: {e}")
-        
+def main():
+    log_message(f"=========Devops automation script started==========")
+    check_system_usage()
+    check_service("nginx")
+    log_message(f"--------Script Completed----------")
+if __name__ == "__main__":
+    main()
+
