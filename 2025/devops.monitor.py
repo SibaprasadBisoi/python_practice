@@ -14,3 +14,11 @@ def check_system_usage():
     log_message(f"CPU usage: {cpu_percent}%")
     log_message(f"Memory usage: {mem.percen}% ({mem.used // (1024**2)}MB / {mem.total // (1024**2)}MB )")
     log_message(f"Disk usage: {disk.percent}%")
+def check_service(service_name):
+    try:
+        result = subprocess.run(["systemctl", "is_active", service_name], capture_output=True, text=True)
+        status = result.stdout.strip()
+        log_message(f"Service {service_name} status:  {status}")
+    except Exception as e:
+        log_message(f"Error checking the {service_name} status: {e}")
+        
