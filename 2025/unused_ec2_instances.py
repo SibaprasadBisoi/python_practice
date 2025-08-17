@@ -15,3 +15,9 @@ for reservation in reservations:
                 "State": state,
                 "LauncTime": launch_time
             })
+if stale_instances:
+    print("Stale EC2 instances (Stopped > 7 days):")
+    for stale in stale_instances:
+        print(f"{stale["InstanceID"]} - {stale['State']} - {stale['LauncTime']}")
+    else:
+        print(f"No stale instances found")
