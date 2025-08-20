@@ -7,3 +7,6 @@ def cleanup_unused_sgs():
     for iface in interfaces:
         for sg in iface["Groups"]:
             used_sgs.add(sg["GroupId"])
+    default_sgs = {sg["GroupId"] for sg in all_sgs if sg["GroupName"] == "defautl"}
+    unused_sgs = {sg for sg in all_sgs if sg["GroupId"] not in used_sgs and sg["GroupId"] not in default_sgs}
+    
