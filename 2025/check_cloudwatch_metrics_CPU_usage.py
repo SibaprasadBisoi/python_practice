@@ -29,5 +29,6 @@ def stop_idle_instances():
                     ec2.stop_instances(InstanceIds=[instance_id])
             else:
                 print(f"No cpu data for instance: {instance_id}")
-                
+if __name__=="__main__":
+    stop_idle_instances()
 
