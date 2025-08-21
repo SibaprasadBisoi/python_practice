@@ -11,4 +11,23 @@ def stop_idle_instances():
             instance_id = instance['InstanceId']
             end_time = datetime.now(timezone.utc)
             start_time = end_time - timedelta(days= 7)
-            
+            metrics = cloudwatch.get_metic_statistics(
+                Namespace = "AWS/EC2",
+                MetricName = "CPUUtilization",
+                Dimensions = [{"Name": "InstanceId", "Value": instance_id}],
+                StartTime = start_time,
+                EndTime = end_time,
+                Period = 86400,
+                Statistics =["Average"]
+            )
+            datapoints = metrics.get["Datapoints", []]
+            if datapoints:
+                avg_cpu = sum(dp["Average"] for dp in datapoints) / len(datapoints)
+                print(f"instance {instance_id} - Avg cpu {avg_cpu:.2f}%")
+                if avg_cpu < 2:
+                    print(f"stopping idle instances: {instance_id}")
+                    ec2.stop_instances(InstanceIds=[instance_id])
+            else:
+                print(f"No cpu data for instance: {instance_id}")
+                
+
