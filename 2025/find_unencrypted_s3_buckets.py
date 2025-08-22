@@ -14,4 +14,5 @@ def check_s3_encryption():
                 report[bucket] = "Not Encrypted"
             else:
                 report[bucket] = f"Error checking: {str(e)}"
-
+if __name__=="__main__":
+    check_s3_encryption()
