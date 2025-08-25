@@ -5,6 +5,6 @@ def hello():
     return render_template('index.html')
 @app.route("/Siba")
 def siba():
-    name = "Siba"
-    return render_template('about.html', name= Siba)
+    name = 'Sibaprasad'
+    return render_template('about.html', name2= name)
 app.run(debug=True)
