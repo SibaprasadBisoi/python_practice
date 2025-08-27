@@ -25,4 +25,12 @@ def find_open_security_groups():
                     })
     return insecure_groups
 
+if __name__ == "__main__":
+    results = find_open_security_groups()
+    if not results:
+        print(f"No security groups found")
+    else:
+        print(f"Insecure security groups are: \n")
+        for sg in results:
+            print(f'{sg['GroupName']} ({sg['GroupId']})')
 
