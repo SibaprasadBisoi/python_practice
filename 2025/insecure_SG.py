@@ -9,4 +9,9 @@ def find_open_security_groups():
     for sg in response['SecurityGroups']:
         group_name = sg['GroupName']
         group_id = sg['GroupId']
-        
+
+        for perm in sg.get("IpPermissions", []):
+            from_port = perm.get("FromPort")
+            to_port = perm.get("ToPort")
+
+            
