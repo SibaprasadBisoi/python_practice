@@ -57,7 +57,7 @@ def contact():
         db.session.add(entry)
         db.session.commit()
         mail.send_message('New mail from' + name, 
-                          sender = [params['gmail-user']], 
+                          sender = email, 
                           recipients = [params['gmail-user']],
                           body = message + "\n" + phone)
     return render_template('contact.html', params = params)
