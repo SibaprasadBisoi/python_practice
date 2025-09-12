@@ -14,3 +14,14 @@ def list_containers():
         })
     return container_info
 
+if __name__ == "__main__":
+    try:
+        info = list_containers()
+        if not info:
+            print(f"No containers found")
+        else: 
+            print(f"Docker containers")
+            for c in info:
+                print(f"{c["Name"]} ({c['ID']}) | image: {c['Image']} | status: {c['status']}")
+    except Exception as e:
+        print(f"Error: {e}")
