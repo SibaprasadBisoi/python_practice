@@ -17,4 +17,11 @@ def check_website(url):
             print(f"{url} returned status: {response.status_code}")
     except Exception as e:
         print(f" {url} is down: {e}")
-        
+
+if __name__ == "__main__":
+    while True:
+        print("\n checking websites....")
+        for site in websites:
+            check_website(site)
+        print(f" waiting 60 seconds before next check..\n")
+        time.sleep(60)
