@@ -40,14 +40,15 @@ class Posts(db.Model):
     title = db.Column(db.String(80), nullable=False)
     slug = db.Column(db.String(21), nullable=False)
     content = db.Column(db.String(120), nullable=False)
+    tagline = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
     img_file = db.Column(db.String(12), nullable=True)
 
 
 @app.route("/")
 def home():
-
-    return render_template('index.html', params=params)
+    posts = Posts.query.filter_by().all()[0:params['no_of_posts']]
+    return render_template('index.html', params=params, posts=posts)
 
 
 @app.route("/post/", methods=['GET'])
@@ -79,4 +80,5 @@ def contact():
 
 
 app.run(debug=True)
+
 
