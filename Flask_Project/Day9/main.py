@@ -60,6 +60,17 @@ def post_route(post_slug):
 def about():
     return render_template('about.html', params=params)
 
+@app.route("/dashboard")
+def dashboard():
+    if request.method=="POST":
+        username = request.form.get("uname")
+        userpass = request.form.get("upass")
+        if username==params['admin_user'] and userpass==params['admin_password']:
+            # set the session variable
+            pass
+    else:
+        return render_template("login.html", params=params)
+
 
 @app.route("/contact", methods = ['GET', 'POST'])
 def contact():
