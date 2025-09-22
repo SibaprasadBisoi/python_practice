@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 import json
 from datetime import datetime
+from flask import session
 
 
 with open('config.json', 'r') as c:
@@ -91,5 +92,3 @@ def contact():
 
 
 app.run(debug=True)
-
-
