@@ -63,6 +63,9 @@ def about():
 
 @app.route("/dashboard")
 def dashboard():
+    if "user" in session and session['user']==params['admin_user']:
+        posts = Posts.querry.all()
+        return render_template("dashboard.html", params=params, posts=posts)
     if request.method=="POST":
         username = request.form.get("uname")
         userpass = request.form.get("upass")
