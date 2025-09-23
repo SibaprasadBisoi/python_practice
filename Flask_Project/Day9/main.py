@@ -68,6 +68,7 @@ def dashboard():
         userpass = request.form.get("upass")
         if username==params['admin_user'] and userpass==params['admin_password']:
             # set the session variable
+            session['user']=username
             pass
     else:
         return render_template("login.html", params=params)
