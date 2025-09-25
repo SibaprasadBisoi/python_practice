@@ -61,6 +61,7 @@ def post_route(post_slug):
 def about():
     return render_template('about.html', params=params)
 
+#Dashboard code is added for user session
 @app.route("/dashboard")
 def dashboard():
     if "user" in session and session['user']==params['admin_user']:
