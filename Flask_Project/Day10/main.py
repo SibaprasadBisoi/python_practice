@@ -94,6 +94,7 @@ def contact():
                           recipients = [params['gmail-user']],
                           body = message + "\n" + phone
                           )
+#Block added for new posts
     @app.route("/edit/<string:sno>" , methods=['GET', 'POST'])
     def edit():
     if "user" in session and session['user']==params['admin_user']:
@@ -103,7 +104,11 @@ def contact():
             slug = request.form.get('slug')
             content = request.form.get('content')
             img_file = request.form.get('img_file')
-            date = datetime.now()   
+            date = datetime.now() 
+        if sno=='0':
+            post = Posts(title=box_title, slug=slug, content=content, tagline=tline, img_file=img_file, date=date)
+            db.session.add(post)
+            db.session.commit()  
     return render_template('contact.html', params=params)
 
 
