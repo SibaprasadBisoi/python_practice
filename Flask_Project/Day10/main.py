@@ -94,6 +94,7 @@ def contact():
                           recipients = [params['gmail-user']],
                           body = message + "\n" + phone
                           )
+#Block added for new posts
     @app.route("/edit/<string:sno>" , methods=['GET', 'POST'])
     def edit():
     if "user" in session and session['user']==params['admin_user']:
