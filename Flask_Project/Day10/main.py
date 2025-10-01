@@ -105,7 +105,7 @@ def contact():
             content = request.form.get('content')
             img_file = request.form.get('img_file')
             date = datetime.now() 
-        if sno=='0':
+        if sno =='0':
             post = Posts(title=box_title, slug=slug, content=content, tagline=tline, img_file=img_file, date=date)
             db.session.add(post)
             db.session.commit()  
